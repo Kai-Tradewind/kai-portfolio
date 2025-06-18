@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset ="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Kaizer Cabrera</title>
+        <link href="styling/main-style.css" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dela+Gothic+One&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Gotu&family=Poiret+One&family=Quicksand:wght@300..700&family=Sora:wght@100..800&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="" class="active">Home</a>
+            <a href="">Info</a>
+            <a href="">Contact</a>
+            <a href="">FAQ</a>
+        </div>
+
+
+        <div class = "landing-container">
+            <div class ="landing-page">
+                <div class="landing-content">
+                    <h1 class="landing-text">kai cabrera</h1>
+                    <p class="landing-desc">Photographer and Student-Developer</p>
+                    <div class="scroll-indicator ">see a quick collection of my work below. &#8675;</div>
+                </div>
+            </div>
+
+    
+        </div>
+        <div class="carousel-main">
+            <div class="carousel-header">
+                <h2 class="carousel-title">Building experiences, Telling stories</h2>
+                <p class="carousel-subtitle">Documented experiences and work as a photographer by day and developer by night.</p>
+            </div>
+            <div class="carousel-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="slider" >
+                    <span style="--i:1;"><img src="assets/carousel_img/maski1.jpg" alt=""></span>
+                    <span style="--i:2;"><img src="assets/carousel_img/maski2.jpg" alt=""></span>
+                    <span style="--i:3;"><img src="assets/carousel_img/portfolio2.jpg" alt=""></span>
+                    <span style="--i:4;"><img src="assets/carousel_img/portfolio1.jpg" alt=""></span>
+                    <span style="--i:5;"><img src="assets/carousel_img/maski3.jpg" alt=""></span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class = "projects-panel">
+            <div class="container">
+                <div class = "slider-wrapper">
+                    <button class="arrow left-arrow" onclick="scrollSlider('left')">&#10094;</button>
+                    
+                    <div class="full-slider" id="slider">
+
+                        <div class = "carousel-item">
+                            <a href="photog/livemusic-page.php"><img id ="slide-1" src="assets/bg_img/portfoliobg_4.jpg" alt="Project 1"></a>
+                            
+                            <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
+                                <div class="carousel-caption">Live Music Photography</div>
+                                <div class="carousel-subcaption">Portraits, landscapes, events</div>
+                            </div>
+                        </div>
+
+                        <div class = "carousel-item">
+                            <a href="photog/portrait-page.php"><img id ="slide-2" src="assets/bg_img/portfoliobg_1.jpg" alt="Project 2"></a>
+                            <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
+                                <div class="carousel-caption"> Portrait Photography</div>
+                                <div class="carousel-subcaption">Portraits, landscapes, events</div>
+                            </div>
+                        </div>
+                        
+                        <div class = "carousel-item">
+                            <a href="photog/street-page.php"><img id ="slide-3" src="assets/bg_img/portfoliobg_2.jpg" alt="Project 3"></a>
+                            <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
+                                <div class="carousel-caption">Street Photography</div>
+                                <div class="carousel-subcaption">Portraits, landscapes, events</div>
+                            </div>
+                        </div>                        
+
+                    </div>
+                    <button class="arrow right-arrow" onclick="scrollSlider('right')">&#10095;</button>
+                    <div class="slider-nav">
+                </div>
+            </div>
+
+        </div>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                AOS.init();
+                
+                // Check if images are loading
+                const carouselImages = document.querySelectorAll('.slider img');
+                carouselImages.forEach(img => {
+                    img.onerror = function() {
+                        console.error('Failed to load image:', img.src);
+                        // Fallback for failed images
+                        img.src = 'placeholder.jpg'; // Replace with a placeholder image path
+                        img.style.backgroundColor = '#cccccc';
+                    };
+                    
+                    img.onload = function() {
+                        console.log('Image loaded successfully:', img.src);
+                    };
+                });
+            });
+        </script>
+
+        <script>
+            function scrollSlider(direction) {
+                const slider = document.getElementById('slider');
+                const scrollAmount = window.innerWidth * 0.9; // 90% of screen width
+
+                if (direction === 'left') {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        </script>     
+        <script>
+            const slider = document.getElementById('slider');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 8; // scroll speed multiplier
+                slider.scrollLeft = scrollLeft - walk;
+            });
+
+            // Optional: add touch support
+            let touchStartX = 0;
+            let touchScrollLeft = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].pageX;
+                touchScrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('touchmove', (e) => {
+                const touchX = e.touches[0].pageX;
+                const delta = (touchX - touchStartX) * 2;
+                slider.scrollLeft = touchScrollLeft - delta;
+            });
+        </script>
+   
+    </body>
+</html>
