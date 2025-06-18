@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="navbar">
-            <a href="" class="active">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="">Info</a>
             <a href="">Contact</a>
             <a href="">FAQ</a>

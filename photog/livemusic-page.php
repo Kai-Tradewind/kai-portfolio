@@ -9,7 +9,7 @@
     <body>
 
         <div class="navbar">
-            <a href="../portfolio-main.php" class="active">Home</a>
+            <a href="../index.html" class="active">Home</a>
             <a href="info-page.php">Info</a>
             <a href="contact-page.php">Contact</a>
             <a href="faq-page.php">FAQ</a>

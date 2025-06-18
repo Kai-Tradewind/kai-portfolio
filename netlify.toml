@@ -1,4 +1,4 @@
 [[redirects]]
 from = "/*"
-to = "/portfolio-main.php"
+to = "/index.html"
 status = 200
