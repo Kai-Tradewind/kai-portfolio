@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/*"
+to = "/kai-portfolio.php"
+status = 20
