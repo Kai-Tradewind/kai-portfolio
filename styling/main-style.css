@@ -62,7 +62,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(49, 49, 49, 0.076), #000000e0), 
+    background: linear-gradient(to bottom, rgba(49, 49, 49, 0.219), #000000ef), 
     url('../assets/bg_img/portfoliobg_3.jpg') no-repeat center center / cover;
     background-size: cover;
     filter: blur(4px);
@@ -137,6 +137,7 @@ body{
     justify-content: left;
     align-items: left;
     min-height: 100vh;
+    margin-bottom:-20px;
 }
 
 
@@ -180,7 +181,7 @@ body{
     width:100%;
     font-weight: 200;
     max-width:2500px;
-    animation: bounce 5s infinite;
+    
 }
 
 .floating-polaroid {
@@ -196,7 +197,7 @@ body{
 
 @keyframes floaty {
     0% { transform: translateY(0) rotate(5deg); }
-    50% { transform: translateY(-15px) rotate(8deg); }
+    50% { transform: translateY(-15px) rotate(12deg); }
     100% { transform: translateY(0) rotate(5deg); }
 }
 
@@ -224,7 +225,7 @@ body{
     align-items: center;
     overflow: hidden;
     margin-bottom:200px;
-    pading-bottom:150px;
+    padding-bottom:150px;
 }
 
 .carousel-header{
@@ -242,7 +243,7 @@ body{
     font-weight:400;
     color: #fafafa;
     font-size: 6rem;
-    width:64%;
+    width:68%;
     margin-bottom: 10px;
     z-index: 2;
 }
@@ -254,12 +255,11 @@ body{
     font-weight: 300;
     color: #fafafa;
     font-size: 1.7rem;
-    width:64%;
+    width:68%;
     display: inline-block;
     white-space: normal;
     overflow:hidden;
-    animation: typing 3s steps(70, end), blink 0.7s step-end infinite;
-    border-right: 2px solid #fafafa;
+   
 }
 
 @keyframes blink {
@@ -516,31 +516,27 @@ body{
 }
 
 #typed-subtitle {
-    position: relative;
     font-family: 'Epilogue', sans-serif;
     font-weight: 300;
     color: #fafafa;
     font-size: 1.7rem;
-    max-width: 64%;
+    max-width: 68%;
     line-height: 1.6;
-    white-space: normal;
-    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    position: relative;
 }
 
 #typed-subtitle::after {
-    content: '|';
-    position: absolute;
-    right: -10px;
-    opacity:1;
-}
-
-#typed-subtitle.cursor-stop::after {
-    animation: none;
-    opacity: 1;
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 1.7rem;
+    background-color: #fafafa;
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+    vertical-align: bottom;
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0;
-    }
+    50% { opacity: 0; }
 }
