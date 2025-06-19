@@ -37,7 +37,7 @@
         <div class="carousel-main">
             <div class="carousel-header">
                 <h2 class="carousel-title" data-aos="fade-up" data-aos-delay="200">Building experiences, Telling stories</h2>
-                <p class="carousel-subtitle" data-aos="fade-up" data-aos-delay="200">This site is a testament to my work as a creative by day and developer by night. Providing resources that are not products to sell, but rather stories to tell.</p>
+                <p class="carousel-subtitle" id="typed-subtitle"></p>
             </div>
             <div class="carousel-container" data-aos="fade-up" data-aos-delay="100">
                 <div class="slider" >
@@ -59,35 +59,39 @@
                     <div class="full-slider" id="slider">
 
                         <div class = "carousel-item">
-                            <a href="photog/livemusic-page.html"><img id ="slide-1" src="assets/carousel_img/carousel2.jpg" alt="Project 1"></a>
+                            <img id ="slide-1" src="assets/carousel_img/carousel2.jpg" alt="Project 1">
                             
                             <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
                                 <div class="carousel-caption">Live Music Photography</div>
                                 <div class="carousel-subcaption">Featuring: DEMI, ZILD, E-Kove, The Ridleys</div>
+                                <a href="photog/livemusic-page.html"><button type = "button" class="project-button">See more</button></a>
                             </div>
                         </div>
 
                         <div class = "carousel-item">
-                            <a href="photog/portrait-page.html"><img id ="slide-2" src="assets/carousel_img/portfolio.jpg" alt="Project 2"></a>
+                            <img id ="slide-2" src="assets/carousel_img/portfolio.jpg" alt="Project 2">
                             <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
                                 <div class="carousel-caption"> Portrait Photography</div>
                                 <div class="carousel-subcaption">Portraits, Cosplay, and People.</div>
+                                <a href="photog/portrait-page.html"><button type = "button" class="project-button">See more</button></a>
                             </div>
                         </div>
                         
                         <div class = "carousel-item">
-                            <a href="photog/street-page.html"><img id ="slide-3" src="assets/bg_img/portfoliobg_2.jpg" alt="Project 3"></a>
+                            <img id ="slide-3" src="assets/bg_img/portfoliobg_2.jpg" alt="Project 3">
                             <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
                                 <div class="carousel-caption">Street Photography</div>
                                 <div class="carousel-subcaption">Portraits, landscapes, events</div>
+                                <a href="photog/street-page.html"><button type = "button" class="project-button">See more</button></a>
                             </div>
                         </div>                
                         
                         <div class = "carousel-item">
-                            <a href="photog/photojourn-page.html"><img id ="slide-3" src="assets/bg_img/portfoliobg_3.jpg" alt="Project 3"></a>
+                            <img id ="slide-3" src="assets/bg_img/portfoliobg_3.jpg" alt="Project 3">
                             <div class="carousel-caption-group" data-aos="fade-up" data-aos-delay="100">
                                 <div class="carousel-caption">Photojournalism</div>
                                 <div class="carousel-subcaption">The New Builder</div>
+                                <a href="photog/photojourn-page.html"><button type = "button" class="project-button">See more</button></a>
                             </div>
                         </div>
 
@@ -178,6 +182,26 @@
                 slider.scrollLeft = touchScrollLeft - delta;
             });
         </script>
-   
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const element = document.getElementById('typed-subtitle');
+                const fullText = "This site is a testament to my work as a creative by day and developer by night. Providing resources that are not products to sell, but rather stories to tell.";
+                const words = fullText.split(' ');
+                let i = 0;
+
+                function typeNextWord() {
+                    if (i < words.length) {
+                        element.innerHTML += words[i] + ' ';
+                        i++;
+                        setTimeout(typeNextWord, 200); // Speed between words
+                    } else{
+                        element.classList.add('cursor-stop');
+                    }
+                }
+
+                typeNextWord();
+            });
+        </script>
     </body>
 </html>

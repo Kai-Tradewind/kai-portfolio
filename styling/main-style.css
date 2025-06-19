@@ -151,7 +151,7 @@ body{
     color:#fafafa;
     display:block; 
     z-index:5;
-    animation: bounce 5s infinite;
+    
     text-shadow: 1px 5px 16px rgba(0,0,0,0.31);
 }
 
@@ -174,13 +174,13 @@ body{
 
 .scroll-indicator {
     font-family:'Epilogue', sans-serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #fafafa;
     
     width:100%;
     font-weight: 200;
     max-width:2500px;
-    
+    animation: bounce 5s infinite;
 }
 
 .floating-polaroid {
@@ -248,12 +248,33 @@ body{
 }
 
 .carousel-subtitle{
+    
     text-align: left;
     font-family: 'Epilogue', sans-serif;
     font-weight: 300;
     color: #fafafa;
     font-size: 1.7rem;
     width:64%;
+    display: inline-block;
+    white-space: normal;
+    overflow:hidden;
+    animation: typing 3s steps(70, end), blink 0.7s step-end infinite;
+    border-right: 2px solid #fafafa;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0ch;
+    }
+    to {
+        width: 80ch;
+    }
 }
 .carousel-container {
     background-color:#000000;
@@ -407,6 +428,26 @@ body{
     opacity: 0.85;
 }
 
+.project-button{
+    font-family:'Epilogue', sans-serif;
+    font-weight:600;
+    font-size: 2rem;
+    color: black;
+    background-color: var(--base-variant);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    border-style: none;
+}
+
+.project-button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    color: white;
+}
+
 .carousel-overlay {
   position: absolute;
   top: 0;
@@ -474,3 +515,32 @@ body{
     transform: translateY(-50px) scale(1.1); /* Slight lift and zoom on hover */
 }
 
+#typed-subtitle {
+    position: relative;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300;
+    color: #fafafa;
+    font-size: 1.7rem;
+    max-width: 64%;
+    line-height: 1.6;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+#typed-subtitle::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    opacity:1;
+}
+
+#typed-subtitle.cursor-stop::after {
+    animation: none;
+    opacity: 1;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
